@@ -1,0 +1,38 @@
+# ============================================================
+# Talk to Founder — Voice AI Agent Dependencies
+# Stack: Groq LLM + Deepgram STT + Cartesia TTS + LiveKit
+# ============================================================
+
+# LiveKit Agent Core
+livekit-agents[openai,silero,deepgram,cartesia]==0.12.16
+livekit-plugins-openai==0.10.10
+livekit-plugins-silero==0.7.5
+livekit-plugins-deepgram==0.7.2
+livekit-plugins-cartesia==0.4.2
+
+# Lead API Backend
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+
+# HTTP Client + Web Scraping
+httpx==0.27.2
+beautifulsoup4==4.12.3
+
+# Free Web Search (no API key needed)
+duckduckgo-search==6.3.7
+
+# Async File I/O
+aiofiles==24.1.0
+
+# Async SQLite (lead persistence)
+aiosqlite==0.20.0
+
+# Data Validation
+pydantic==2.10.3
+python-dotenv==1.0.1
+
+# Mistral AI (heavy reasoning fallback)
+mistralai==1.2.6
+
+# Utilities
+python-dateutil==2.9.0.post0
