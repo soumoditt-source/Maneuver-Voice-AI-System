@@ -18,6 +18,14 @@
     --text-secondary: rgba(255, 255, 255, 0.5);
   }
 
+  /* Light mode token overrides */
+  :root:not(.dark) {
+    --card-bg: rgba(0, 0, 0, 0.03);
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --text-primary: rgba(0, 0, 0, 0.88);
+    --text-secondary: rgba(0, 0, 0, 0.5);
+  }
+
   * {
     box-sizing: border-box;
     margin: 0;

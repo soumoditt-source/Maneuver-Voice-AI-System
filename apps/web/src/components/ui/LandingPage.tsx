@@ -294,7 +294,7 @@ export default function LandingPage({ onEnter, restoredName }: LandingPageProps)
             )}
             <div className="relative flex items-center justify-center gap-3">
               <Mic className="w-4 h-4 text-neon-cyan" />
-              <span>{isSubmitting ? 'CONNECTING...' : 'SPEAK TO Husain'}</span>
+              <span>{isSubmitting ? 'CONNECTING...' : 'SPEAK TO HUSAIN'}</span>
               {name.trim() && !isSubmitting && (
                 <ArrowRight className="w-4 h-4 text-neon-cyan group-hover:translate-x-1 transition-transform" />
               )}
