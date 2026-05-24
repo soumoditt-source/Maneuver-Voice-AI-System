@@ -97,7 +97,7 @@ export default function TranscriptPanel({ transcript, isAgentTyping = false }: T
       {/* Scrollable messages — this is THE scroll container */}
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto p-4 space-y-3"
+        className="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar"
         style={{ minHeight: 0, scrollBehavior: 'smooth' }}
       >
         {allMessages.length === 0 && !liveUserText && !liveAgentText ? (
