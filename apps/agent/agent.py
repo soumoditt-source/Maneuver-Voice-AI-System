@@ -7,6 +7,7 @@ import asyncio
 import os
 import logging
 import json
+import re
 import aiohttp
 from datetime import timedelta
 from dotenv import load_dotenv
@@ -27,6 +28,22 @@ logging.basicConfig(
     format="%(asctime)s [%(name)s] %(levelname)s: %(message)s",
 )
 logger = logging.getLogger("founder-agent")
+
+# ── Strip any leaked tool-call syntax from LLM output before TTS/chat ────────
+_TOOL_LEAK_RE = re.compile(
+    r'\(\w+>[^)]*\)'          # (update_lead_field>{...})
+    r'|\[\w+\([^)]*\)\]'       # [show_services_slide()]
+    r'|<tool_call>.*?</tool_call>'  # XML-style tool calls
+    r'|```[^`]*```',           # any code fences
+    re.DOTALL
+)
+
+def clean_text(text: str) -> str:
+    """Remove any leaked function/tool call artifacts from spoken text."""
+    cleaned = _TOOL_LEAK_RE.sub('', text)
+    # Collapse multiple spaces/newlines left behind
+    cleaned = re.sub(r'\s{2,}', ' ', cleaned).strip()
+    return cleaned or text  # fallback to original if we wiped everything
 
 
 def build_groq_llm():
@@ -131,7 +148,8 @@ async def main():
 
     @agent.on("agent_speech_committed")
     def on_agent_speech(msg: llm.ChatMessage):
-        text = msg.content if isinstance(msg.content, str) else str(msg.content)
+        raw = msg.content if isinstance(msg.content, str) else str(msg.content)
+        text = clean_text(raw)
         asyncio.create_task(lead_store.add_transcript_turn(lead_id, "agent", text))
         publish({"event": "transcript", "data": {"role": "agent", "text": text}})
 
