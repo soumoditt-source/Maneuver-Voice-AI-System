@@ -214,7 +214,7 @@ export function StartCallButton({ onStartCall }: { onStartCall: () => void }) {
         <Play className="w-5 h-5 text-neon-cyan ml-0.5" fill="currentColor" />
       </div>
       <div className="relative text-left">
-        <p className="font-orbitron font-bold text-xl text-white tracking-wider">SPEAK TO ALEX</p>
+        <p className="font-orbitron font-bold text-xl text-white tracking-wider">SPEAK TO HUSAIN</p>
         <p className="font-space text-xs text-white/40 mt-0.5">AI Founder · Maneuver</p>
       </div>
     </motion.button>

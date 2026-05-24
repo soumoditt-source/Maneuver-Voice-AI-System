@@ -305,6 +305,9 @@ export default function Page() {
     clearSession();
     agentProps.disconnect();
     agentProps.clearTranscript();
+    // Clear all persisted state so next session is completely fresh
+    localStorage.removeItem('maneuver_transcript');
+    localStorage.removeItem('maneuver_session');
     setAppState('landing');
   }, [clearSession, agentProps]);
 
@@ -416,11 +419,8 @@ export default function Page() {
                 audio={true}
                 video={false}
                 onDisconnected={() => {
-                  if (session) {
-                    setTimeout(() => {
-                      agentProps.connect(session.userName, session.sessionId);
-                    }, 2500);
-                  }
+                  // Do NOT auto-reconnect — causes greeting loop. Let user decide.
+                  agentProps.disconnect();
                 }}
               >
                 <AgentInterface agentProps={agentProps} />
