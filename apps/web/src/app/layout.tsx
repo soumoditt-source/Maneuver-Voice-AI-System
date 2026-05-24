@@ -24,10 +24,10 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: 'Maneuver | The AI Founder Experience',
-  description: 'Interact with Alex, the visionary AI founder behind Maneuver. Experience ultra-low latency voice conversations, intelligent insights, and the future of interaction.',
+  description: 'Interact with Husain, the visionary AI founder behind Maneuver. Experience ultra-low latency voice conversations, intelligent insights, and the future of interaction.',
   openGraph: {
     title: 'Maneuver | The AI Founder Experience',
-    description: 'Experience ultra-low latency voice conversations with Alex, the AI founder.',
+    description: 'Experience ultra-low latency voice conversations with Husain, the AI founder.',
     type: 'website',
   }
 };

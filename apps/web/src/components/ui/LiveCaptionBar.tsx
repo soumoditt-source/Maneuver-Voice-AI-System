@@ -42,7 +42,7 @@ export default function LiveCaptionBar({ liveUserText, liveAgentText, isListenin
             <div className="flex items-center gap-3 mt-1">
               <div className="flex items-center gap-1.5 shrink-0">
                 <Volume2 className="w-3.5 h-3.5 text-neon-violet" />
-                <span className="font-mono text-[10px] text-neon-violet/70 uppercase tracking-widest">Alex</span>
+                <span className="font-mono text-[10px] text-neon-violet/70 uppercase tracking-widest">Husain</span>
               </div>
               <p className="font-space text-sm text-white/80 truncate">
                 {liveAgentText}

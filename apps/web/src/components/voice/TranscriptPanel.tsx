@@ -119,7 +119,7 @@ export default function TranscriptPanel({ transcript, isAgentTyping = false }: T
               <div className="h-full flex flex-col items-center justify-center text-white/20 text-center gap-3 py-12">
                 <MessageSquare className="w-10 h-10 opacity-20" />
                 <p className="font-space text-sm">Start speaking or type below</p>
-                <p className="font-space text-xs opacity-50">Alex is listening...</p>
+                <p className="font-space text-xs opacity-50">Husain is listening...</p>
               </div>
             ) : (
               <AnimatePresence initial={false}>
@@ -135,7 +135,7 @@ export default function TranscriptPanel({ transcript, isAgentTyping = false }: T
                       <span className="text-[9px] font-mono uppercase tracking-widest" style={{
                         color: msg.isUser ? 'rgba(0,245,255,0.5)' : 'rgba(123,47,255,0.5)'
                       }}>
-                        {msg.isUser ? 'You' : 'Alex'}
+                        {msg.isUser ? 'You' : 'Husain'}
                       </span>
                       {msg.source === 'chat' && (
                         <span className="text-[8px] text-white/20 font-space">(text)</span>
@@ -175,7 +175,7 @@ export default function TranscriptPanel({ transcript, isAgentTyping = false }: T
                   </motion.div>
                 )}
 
-                {/* Alex typing indicator */}
+                {/* Husain typing indicator */}
                 {(isAgentTyping || liveAgentText) && (
                   <motion.div
                     key="agent-typing"
@@ -183,7 +183,7 @@ export default function TranscriptPanel({ transcript, isAgentTyping = false }: T
                     animate={{ opacity: 1, y: 0 }}
                     className="flex flex-col items-start"
                   >
-                    <span className="text-[9px] font-mono uppercase tracking-widest text-neon-violet/50 mb-1">Alex</span>
+                    <span className="text-[9px] font-mono uppercase tracking-widest text-neon-violet/50 mb-1">Husain</span>
                     {liveAgentText ? (
                       <div className="px-4 py-2.5 max-w-[88%] text-sm font-space rounded-2xl rounded-tl-sm"
                         style={{
@@ -225,7 +225,7 @@ export default function TranscriptPanel({ transcript, isAgentTyping = false }: T
               style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
             >
               <Keyboard className="w-4 h-4" />
-              <span>Type a message to Alex...</span>
+              <span>Type a message to Husain...</span>
             </motion.button>
           ) : (
             <motion.form
@@ -248,7 +248,7 @@ export default function TranscriptPanel({ transcript, isAgentTyping = false }: T
                 type="text"
                 value={message}
                 onChange={e => setMessage(e.target.value)}
-                placeholder="Message Alex..."
+                placeholder="Message Husain..."
                 className="flex-1 bg-transparent border-none outline-none text-sm text-white font-space placeholder:text-white/25"
               />
               <motion.button

@@ -53,7 +53,7 @@ export default function ChatInput() {
               type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Type your message to Alex..."
+              placeholder="Type your message to Husain..."
               className="flex-1 bg-transparent border-none outline-none text-black dark:text-white font-space placeholder:text-black/30 dark:placeholder:text-white/30"
               autoFocus
             />

@@ -50,7 +50,7 @@ async def main():
     token = (
         lk_api.AccessToken(api_key, api_secret)
         .with_identity("agent-founder")
-        .with_name("Alex Chen · Maneuver")
+        .with_name("Husain Topiwala · Maneuver")
         .with_grants(lk_api.VideoGrants(
             room_join=True,
             room=room_name,
@@ -152,7 +152,7 @@ async def main():
         has_greeted = True
         
         name = participant.name or "there"
-        greeting = f"Hey {name}! I'm Alex from Maneuver. What brings you in today?"
+        greeting = f"Hey {name}! I'm Husain from Maneuver. What brings you in today?"
         
         agent.chat_ctx.messages.append(
             llm.ChatMessage(
@@ -208,7 +208,7 @@ async def main():
         except Exception as e:
             pass
 
-    logger.info("🎙️ Alex is live and waiting for visitors...")
+    logger.info("🎙️ Husain is live and waiting for visitors...")
     await asyncio.Event().wait()
 
 

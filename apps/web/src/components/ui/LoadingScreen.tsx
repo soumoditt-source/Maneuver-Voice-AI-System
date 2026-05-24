@@ -10,7 +10,7 @@ interface LoadingScreenProps {
 const LOADING_STAGES = [
   'Initializing Neural Core...',
   'Connecting Voice Engine...',
-  'Loading Alex Chen AI...',
+  'Loading Husain Topiwala AI...',
   'System Online.',
 ];
 

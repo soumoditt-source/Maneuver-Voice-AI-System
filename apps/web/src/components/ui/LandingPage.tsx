@@ -202,7 +202,7 @@ export default function LandingPage({ onEnter, restoredName }: LandingPageProps)
           animate={{ opacity: 1 }}
           transition={{ delay: 0.45 }}
         >
-          Speak directly with Alex, our AI Founder. Experience zero-latency voice discovery powered by custom ML and neural TTS.
+          Speak directly with Husain, our AI Founder. Experience zero-latency voice discovery powered by custom ML and neural TTS.
         </motion.p>
 
         {/* Restored session banner */}
@@ -294,7 +294,7 @@ export default function LandingPage({ onEnter, restoredName }: LandingPageProps)
             )}
             <div className="relative flex items-center justify-center gap-3">
               <Mic className="w-4 h-4 text-neon-cyan" />
-              <span>{isSubmitting ? 'CONNECTING...' : 'SPEAK TO ALEX'}</span>
+              <span>{isSubmitting ? 'CONNECTING...' : 'SPEAK TO Husain'}</span>
               {name.trim() && !isSubmitting && (
                 <ArrowRight className="w-4 h-4 text-neon-cyan group-hover:translate-x-1 transition-transform" />
               )}
