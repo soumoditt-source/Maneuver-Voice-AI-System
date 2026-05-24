@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # The LiveKit Voice AI Agent
+  voice-agent:
+    build: 
+      context: ./apps/agent
+      dockerfile: Dockerfile
+    container_name: maneuver-voice-agent
+    env_file:
+      - ./apps/agent/.env
+    restart: always
+
+  # The FastAPI Lead Database Server
+  lead-api:
+    build: 
+      context: ./apps/agent
+      dockerfile: Dockerfile
+    container_name: maneuver-lead-api
+    env_file:
+      - ./apps/agent/.env
+    command: ["python", "api.py"]
+    ports:
+      - "8001:8001"
+    restart: always
