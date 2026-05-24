@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import type { LeadData } from '@/lib/types';
-import { User, Building, Briefcase, Mail, Phone, Target, Clock, DollarSign, Users, ArrowRight } from 'lucide-react';
+import { User, Building, Briefcase, Mail, Phone, Target, Clock, DollarSign, Users, ArrowRight, Download } from 'lucide-react';
 
 interface LeadPanelProps {
   data: LeadData;
@@ -23,6 +23,19 @@ const fields = [
 ] as const;
 
 export default function LeadPanel({ data, progress }: LeadPanelProps) {
+  const handleDownload = () => {
+    const jsonString = JSON.stringify(data, null, 2);
+    const blob = new Blob([jsonString], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `maneuver_discovery_${data.name || 'lead'}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="w-full h-full flex flex-col pt-4">
       <div className="flex items-center justify-between mb-6">
@@ -79,6 +92,18 @@ export default function LeadPanel({ data, progress }: LeadPanelProps) {
           );
         })}
       </div>
+
+      {progress > 50 && (
+        <motion.button
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          onClick={handleDownload}
+          className="mt-4 w-full flex items-center justify-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/30 py-3 rounded-lg font-space text-sm tracking-wider transition-colors shadow-[0_0_15px_rgba(0,245,255,0.1)]"
+        >
+          <Download className="w-4 h-4" />
+          DOWNLOAD DISCOVERY JSON
+        </motion.button>
+      )}
     </div>
   );
 }
